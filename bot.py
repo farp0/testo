@@ -3,9 +3,9 @@ from pyrogram.types import Message
 import asyncio
 
 # Replace these with your own values
-api_id = 'YOUR_API_ID'  # Get from https://my.telegram.org/auth
-api_hash = 'YOUR_API_HASH'  # Get from https://my.telegram.org/auth
-bot_token = 'YOUR_BOT_TOKEN'  # Get from BotFather
+api_id = '3335796'  # Get from https://my.telegram.org/auth
+api_hash = '138b992a0e672e8346d8439c3f42ea78'  # Get from https://my.telegram.org/auth
+bot_token = '7136875110:AAF3hNDcTC4X2e9GQ7EePvOST7aTCPh1pGg'  # Get from BotFather
 
 # Create the Pyrogram client instance
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
