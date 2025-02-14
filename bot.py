@@ -10,16 +10,26 @@ app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 @app.on_message(filters.command("start"))
 def start(client, message):
-    message.chat.send_action("typing")
-    time.sleep(2)
+   # message.chat.send_action("typing")
+   # time.sleep(2)
     message.reply("Hello! Welcome to the bot!")
 
 # Handle the /help command
 @app.on_message(filters.command("help"))
 def help(client, message):
+    
+    message.chat.send_action("typing")
+    time.sleep(2)
     message.reply("This is a bot that responds to /start and /help commands.")
 
 # Handle any other message that starts with 
+@app.on_message(filters.command("kir"))
+def start(client, message):
+   message.chat.send_action("upload_photo")
+   time.sleep(2)
+   
+    # Send a photo after the "typing" action
+   message.reply_photo("https://example.com/path/to/your/image.jpg")
 
 if __name__ == "__main__":
     app.run()
