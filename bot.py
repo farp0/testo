@@ -15,21 +15,13 @@ def start(client, message):
     message.reply("Hello! Welcome to the bot!")
 
 # Handle the /help command
-@app.on_message(filters.command("help"))
-def help(client, message):
+@app.on_message(filters.command("send_photo"))
+def send_photo(client, message):
+    client.send_photo(
+        chat_id=message.chat.id,  # Send the photo to the chat where the command was received
+        photo="photo.jpg",  # Replace with the path to your photo
+        caption="Here is your requested photo!"  # Optional caption for the photo
+    )
     
-    message.chat.send_action("typing")
-    time.sleep(2)
-    message.reply("This is a bot that responds to /start and /help commands.")
-
-# Handle any other message that starts with 
-@app.on_message(filters.command("kir"))
-def kir(client, message):
-   message.chat.send_action("upload_photo")
-   time.sleep(2)
-   
-    # Send a photo after the "typing" action
-   message.reply_photo("https://example.com/path/to/your/image.jpg")
-
 if __name__ == "__main__":
     app.run()
