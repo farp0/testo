@@ -30,12 +30,21 @@ def send_video(client, message):
         video="vid.mp4",  # Replace with the path to your video
         caption="Here is your requested video!"  # Optional caption for the video
 )
-
+"""
 @app.on_message(filters.text)
 def reply_message(client, message):
     # Reply to the received message with a text
     message.reply("This is a reply to your message!")
+"""
 
-
+@app.on_message(filters.text)
+def forward_and_reply(client, message):
+    # Forward the received message to another chat (replace "target_chat_id" with the chat ID)
+    client.forward_messages(
+        chat_id="target_chat_id",  # Replace with the chat ID where you want to forward the message
+        from_chat_id=message.chat.id,  # The chat where the message was originally sent
+        message_ids=message.message_id  # The ID of the message being forwarded
+    )
+   
 if __name__ == "__main__":
     app.run()
