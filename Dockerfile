@@ -16,7 +16,7 @@ ENV API_HASH=your_api_hash
 ENV BOT_TOKEN=your_bot_token
 
 # Expose the port (Optional, for HTTP servers, not necessary for bots)
-EXPOSE 8080
+EXPOSE 80
 
 # Run the bot script when the container starts
 CMD ["python", "bot.py"]
