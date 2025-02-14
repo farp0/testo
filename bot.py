@@ -45,6 +45,7 @@ def forward_and_reply(client, message):
         from_chat_id=message.chat.id,  # The chat where the message was originally sent
         message_ids=message.message_id  # The ID of the message being forwarded
     )
-   
+   message.reply("This message has been forwarded!")
+
 if __name__ == "__main__":
     app.run()
