@@ -24,7 +24,7 @@ def help(client, message):
 
 # Handle any other message that starts with 
 @app.on_message(filters.command("kir"))
-def start(client, message):
+def kir(client, message):
    message.chat.send_action("upload_photo")
    time.sleep(2)
    
