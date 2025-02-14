@@ -1,17 +1,22 @@
-FROM python:3.10
+# Use an official Python runtime as the base image
+FROM python:3.9-slim
 
+# Set the working directory in the container
 WORKDIR /app
 
-COPY requirements.txt /app/
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip ffmpeg -y
-#RUN pip3 install -U pip
-RUN pip3 install --upgrade pip
-
-RUN pip3 install -r requirements.txt
-
+# Copy the current directory contents into the container at /app
 COPY . /app
 
-#set a default command
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD python3 bot.py
+# Set environment variables for Telegram Bot API
+ENV API_ID=your_api_id
+ENV API_HASH=your_api_hash
+ENV BOT_TOKEN=your_bot_token
+
+# Expose the port (Optional, for HTTP servers, not necessary for bots)
+EXPOSE 80
+
+# Run the bot script when the container starts
+CMD ["python", "bot.py"]
