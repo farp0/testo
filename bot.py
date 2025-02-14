@@ -22,6 +22,14 @@ def send_photo(client, message):
         photo="photo.jpg",  # Replace with the path to your photo
         caption="Here is your requested photo!"  # Optional caption for the photo
     )
-    
+
+@app.on_message(filters.command("send_video"))
+def send_video(client, message):
+    client.send_video(
+        chat_id=message.chat.id,  # Send the video to the chat where the command was received
+        video="vid.mp4",  # Replace with the path to your video
+        caption="Here is your requested video!"  # Optional caption for the video
+)
+
 if __name__ == "__main__":
     app.run()
