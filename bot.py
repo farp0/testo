@@ -31,5 +31,11 @@ def send_video(client, message):
         caption="Here is your requested video!"  # Optional caption for the video
 )
 
+@app.on_message(filters.text)
+def reply_message(client, message):
+    # Reply to the received message with a text
+    message.reply("This is a reply to your message!")
+
+
 if __name__ == "__main__":
     app.run()
