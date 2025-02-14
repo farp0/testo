@@ -9,8 +9,14 @@ bot_token = "7136875110:AAF3hNDcTC4X2e9GQ7EePvOST7aTCPh1pGg"
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 @app.on_message(filters.command("start"))
-def start(client, message):
-    message.reply("Hello! I'm your Pyrogram bot!")
+async def start_command(client, message):
+    # Simulate typing
+    await message.reply_chat_action("typing")  # Typing action
+    time.sleep(2)  # Wait for 2 seconds while typing
+    
+    # Send a message after the typing effect
+    await message.reply("Hello! I'm your bot. How can I help you today?")
+
 
 if __name__ == "__main__":
     app.run()
